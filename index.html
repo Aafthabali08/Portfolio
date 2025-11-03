@@ -403,12 +403,13 @@
             <h2>Contact Me</h2>
             <div class="contact-content">
                 <p>Let's connect! Feel free to reach out for collaborations or opportunities.</p>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+               <form>
+                <input type="text" name="from_name" placeholder="Your Name" required>
+                <input type="email" name="reply_to" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+               </form>
+
                 
                 <p style="margin-top: 2rem;">
   Email:
@@ -455,5 +456,30 @@
             });
         });
     </script>
+    <!-- EmailJS Script -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS with your public key
+    (function () {
+        emailjs.init("C_UCvMXtOaUmszk3w");  // Replace with your EmailJS Public Key
+    })();
+
+    // Add event listener to the contact form
+    document.querySelector("#contact form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const serviceID = "service_mdt0j1r";     // Replace with your EmailJS Service ID
+        const templateID = "template_k0n5gdc";   // Replace with your EmailJS Template ID
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                alert("✅ Message sent successfully!");
+                this.reset();  // Clear form after success
+            }, (error) => {
+                alert("❌ Failed to send message. Error: " + JSON.stringify(error));
+            });
+    });
+</script>
+
 </body>
 </html>
