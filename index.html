@@ -461,7 +461,7 @@
 <script>
     
     (function () {
-        emailjs.init("PUBLIC_KEY_HERE");
+        emailjs.init("_Vp6QrCf_1j3dcJYS");
 
     })();
 
@@ -469,8 +469,8 @@
     document.querySelector("#contact form").addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const serviceID = "SERVICE_ID_HERE";
-        const templateID = "TEMPLATE_ID_HERE";   
+        const serviceID = "service_kq0emjm";
+        const templateID = "template_z79e5sq";   
 
         emailjs.sendForm(serviceID, templateID, this)
             .then(() => {
