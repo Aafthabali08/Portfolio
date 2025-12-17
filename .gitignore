@@ -1,0 +1,11 @@
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Node (future-proof)
+node_modules/
